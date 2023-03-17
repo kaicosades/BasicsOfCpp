@@ -87,29 +87,46 @@ int maxValueIn(const int arr[], const int n)
 	return max;
 }
 
+//void shiftRight(int arr[], const int n)
+//{
+//	//Fillrand(arr, n)
+//	const int s = 5;
+//	int arr_2[s];
+//	int a; cout << "¬ведите размер сдвига: "; cin >> a;
+//	//a %= n;
+//	int f;
+//	for (int i = 0; i < n; i++)
+//	{
+//		arr_2[i] = arr[i];
+//		cout << arr_2[i] << "\t";
+//	}
+//	cout << endl;
+//
+//	for (int i = 0; i < n; i++)
+//	{
+//		if (0 - a + i >= 0)
+//			a = 0;
+//		arr[i] = arr_2[i+1-a];
+//		cout << arr[i] << "\t";
+//	}
+
+
+
+
 void shiftRight(int arr[], const int n)
 {
-	//Fillrand(arr, n)
-	const int s = 5;
-	int arr_2[s];
 	int a; cout << "¬ведите размер сдвига: "; cin >> a;
-	//a %= n;
-	int f;
+	a %= n;
+	if (a == 0)
+		a = -1;
+	int f = arr[0];
 	for (int i = 0; i < n; i++)
 	{
-		arr_2[i] = arr[i];
-		cout << arr_2[i] << "\t";
-	}
-	cout << endl;
-
-	for (int i = 0; i < n; i++)
-	{
-		if (0 - a + i >= 0)
-			a = 0;
-		arr[i] = arr_2[i+1-a];
+		if (i + 5 - a == 5)
+			a = 6;
+		arr[i] = arr[i +5 - a];
 		cout << arr[i] << "\t";
 	}
-
 
 	/*for (int i = n; i > 0; i--)
 	{
