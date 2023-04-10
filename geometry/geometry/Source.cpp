@@ -1,4 +1,4 @@
-п»ї#include<iostream>
+#include<iostream>
 #include<windows.h>
 using std::cin;
 using std::cout;
@@ -10,7 +10,7 @@ using std::endl;
 //#define TASK_4
 //#define TASK_5
 //#define TASK_6
-//#define TASK_7 // Р”Р»СЏ Р·Р°РїСѓСЃРєР° РєРѕРґР° Р·Р°РєРѕРјРјРµРЅС‚РёСЂРѕРІР°С‚СЊ 17 СЃС‚СЂРѕС‡РєСѓ С‚Рє СЏР·С‹Рє РЅРµ РїРµСЂРµРєР»СЋС‡Р°РµС‚СЃСЏ РѕР±СЂР°С‚РЅРѕ.
+//#define TASK_7 // Для запуска кода закомментировать 17 строчку тк язык не переключается обратно.
 //#define TASK_8
 #define tablica_pifagora
 
@@ -18,10 +18,10 @@ void main()
 {
 	setlocale(LC_ALL, "");
 	//int n;
-	//cout << "Р’РІРµРґРёС‚Рµ СЂР°Р·РјРµСЂ С„РёРіСѓСЂС‹:"; cin >> n;
+	//cout << "Введите размер фигуры:"; cin >> n;
 #ifdef TASK_0
 	int n;
-	cout << "Р’РІРµРґРёС‚Рµ СЂР°Р·РјРµСЂ С„РёРіСѓСЂС‹:"; cin >> n;
+	cout << "Введите размер фигуры:"; cin >> n;
 	for (int i = 0; i < n; i++)
 	{
 		for (int j = 0; j < n; j++)
@@ -34,7 +34,7 @@ void main()
 
 #ifdef TASK_1
 	int n;
-	cout << "Р’РІРµРґРёС‚Рµ СЂР°Р·РјРµСЂ С„РёРіСѓСЂС‹:"; cin >> n;
+	cout << "Введите размер фигуры:"; cin >> n;
 	for (int i = 1; i <= n; i++)
 	{
 		for (int j = 0; j != i; j++)
@@ -42,16 +42,16 @@ void main()
 			cout << "*";
 		}
 		cout << endl;
-		
+
 	}
 #endif
 
 #ifdef TASK_2
 	int n;
-	cout << "Р’РІРµРґРёС‚Рµ СЂР°Р·РјРµСЂ С„РёРіСѓСЂС‹:"; cin >> n;
-	for (int i = 0; i <= n-1; i++)
+	cout << "Введите размер фигуры:"; cin >> n;
+	for (int i = 0; i <= n - 1; i++)
 	{
-		for (int j = 0; j != n-i; j++)
+		for (int j = 0; j != n - i; j++)
 		{
 			cout << "*";
 		}
@@ -61,7 +61,7 @@ void main()
 
 #ifdef TASK_3
 	int n;
-	cout << "Р’РІРµРґРёС‚Рµ СЂР°Р·РјРµСЂ С„РёРіСѓСЂС‹:"; cin >> n;
+	cout << "Введите размер фигуры:"; cin >> n;
 	for (int i = 0; i <= n - 1; i++)
 	{
 		int y = 0;
@@ -72,7 +72,7 @@ void main()
 		}
 		for (int j = 0; j != n - i; j++)
 		{
-			
+
 			cout << "*";
 		}
 		cout << endl;
@@ -81,11 +81,11 @@ void main()
 
 #ifdef TASK_4
 	int n;
-	cout << "Р’РІРµРґРёС‚Рµ СЂР°Р·РјРµСЂ С„РёРіСѓСЂС‹:"; cin >> n;
+	cout << "Введите размер фигуры:"; cin >> n;
 	for (int i = 1; i <= n; i++)
 	{
 		int y = 0;
-		while (y != n- i)
+		while (y != n - i)
 		{
 			cout << " ";
 			y++;
@@ -101,7 +101,7 @@ void main()
 
 #ifdef TASK_5
 	int n;
-	cout << "Р’РІРµРґРёС‚Рµ СЂР°Р·РјРµСЂ С„РёРіСѓСЂС‹:"; cin >> n;
+	cout << "Введите размер фигуры:"; cin >> n;
 	for (int i = 0; i < n; i++)
 	{
 		int y = 0;
@@ -121,13 +121,13 @@ void main()
 	for (int i = 0; i < n; i++)
 	{
 		int y = 0;
-		while (y != i+1)
+		while (y != i + 1)
 		{
 			cout << " ";
 			y++;
 		}
 		cout << "\\";
-		for (int j = 0; j !=n - i - 1; j++)
+		for (int j = 0; j != n - i - 1; j++)
 		{
 			cout << "  ";
 		}
@@ -138,7 +138,7 @@ void main()
 
 #ifdef TASK_6
 	int n;
-	cout << "Р’РІРµРґРёС‚Рµ СЂР°Р·РјРµСЂ С„РёРіСѓСЂС‹:"; cin >> n;
+	cout << "Введите размер фигуры:"; cin >> n;
 	for (int i = 0; i < n; i++)
 	{
 		for (int j = 0; j < n; j++)
@@ -154,7 +154,7 @@ void main()
 
 #ifdef TASK_7
 	int n;
-	cout << "Р’РІРµРґРёС‚Рµ СЂР°Р·РјРµСЂ С„РёРіСѓСЂС‹:"; cin >> n;
+	cout << "Введите размер фигуры:"; cin >> n;
 	setlocale(LC_ALL, ".866");
 
 	char ugol_left_up = 218;
@@ -201,24 +201,24 @@ void main()
 
 #ifdef TASK_8
 	int n;
-	cout << "Р’РІРµРґРёС‚Рµ СЂР°Р·РјРµСЂ С„РёРіСѓСЂС‹:"; cin >> n;
+	cout << "Введите размер фигуры:"; cin >> n;
 	for (int i = 0; i < n; i++)
 	{
 		int y = 0;
 		while (y != 5)
 		{
 			y++;
-			for (int j = 0; j < n*3; j = j+3)
+			for (int j = 0; j < n * 3; j = j + 3)
+			{
+				if ((i + j) % 2 == 0)
 				{
-					if ((i + j) % 2 == 0)
-					{
-						cout << "* * * * *";
-					}
-					else
-						{
-						cout << "         ";
-					}
+					cout << "* * * * *";
 				}
+				else
+				{
+					cout << "         ";
+				}
+			}
 			cout << endl;
 		}
 		//cout << endl;
@@ -231,7 +231,7 @@ void main()
 	COORD coord = {};
 	SetConsoleDisplayMode(hConsole, CONSOLE_FULLSCREEN_MODE, &coord);
 	int h;
-	cout << "Р’РІРµРґРёС‚Рµ РІС‹СЃРѕС‚Сѓ С‚СЂРµСѓРіРѕР»СЊРЅРёРєР°: "; cin >> h;
+	cout << "Введите высоту треугольника: "; cin >> h;
 	long long int nf = 1;
 	for (int i = 0; i <= h; i++)
 	{
@@ -248,8 +248,8 @@ void main()
 		cout << 1;// << " ";
 		nf *= n;
 		long long int kf = 1;
-		
-		
+
+
 		for (int k = 1; k <= n; k++)
 		{
 			kf *= k;
