@@ -8,6 +8,8 @@ int Dif(int a, int b);
 int Product(int a, int b);
 double Quotient(double a, double b);
 int Reminder(int a, int b);
+int Factorial(int a);
+float Power(float a, float b);
 
 
 void main()
@@ -22,6 +24,9 @@ void main()
 	cout << a << " * " << b << " = " << Product(a, b) << endl;
 	cout << a << " / " << b << " = " << Quotient(a, b) << endl;
 	cout << a << " % " << b << " = " << Reminder(a, b) << endl;
+	cout << "Факториал " << a << " = " << Factorial(a) << endl;
+	cout << a << " ^ " << b << " = " << Power(a, b) << endl;
+
 
 }
 
@@ -46,4 +51,23 @@ double Quotient(double a, double b) // частное
 int Reminder(int a, int b)
 {
 	return a % b;
+}
+
+int Factorial(int a)
+{
+	for (int i = a; i > 1; i--) a *= i - 1;
+	return a;
+}
+
+float Power(float a, float b)
+{
+	if (b < 0)
+	{
+		a = 1 / a;
+		b *= -1;
+	}
+	if (b == 0) a = 1;
+	float n = a;
+	for (b; b > 1; b--)n *= a;
+	return n;
 }
