@@ -7,7 +7,9 @@ int Sum(const int arr[], const int n);
 double Avg(const int arr[], const int n);
 int minValueIn(const int arr[], const int n);
 int maxValueIn(const int arr[], const int n);
-void shiftRight(int arr[], const int n);
+void Search( int arr[],  int n);
+void UniqueRand(int arr[], int n);
+//void shiftRight(int arr[], const int n);
 //void shiftLeft(int arr[], const int n);
 
 void main()
@@ -22,18 +24,10 @@ void main()
 	cout << "Максимальное значение в массиве: " << maxValueIn(arr, n) << endl;
 	cout << "Сумма всех элементов в массиве: " << Sum(arr, n) << endl;
 	cout << "Среднее арифметическое элементов в массиве: " << Avg(arr, n) << endl;
-	char y;
-	cout << "Выберите сдвиг массива: " << "\t<-\t" << "->" << endl;
-	//y = _getch();
-	//cout << (int)y;
-	//switch ((int)y)
-	//{
-	//case 75: shiftLeft(arr, n); break;
-	/*case -32:*/ shiftRight(arr, n);// break;
-	//}
-	
-	/*int a; cout << "Введите сдвиг массива: " << endl; cin >> a;
-	cout << "Массив со сдвигом: "*/
+	Search(arr, n);
+	UniqueRand(arr, n);
+	cout << "Массив с уникальными элементами: ";
+	Print(arr, n);
 }
 
 void Fillrand(int arr[], const int n)
@@ -87,65 +81,135 @@ int maxValueIn(const int arr[], const int n)
 	return max;
 }
 
+void Search( int arr[],  int n)
+{
+	int replay = 0;
+	int not_replay = 0;
+	for (int i = 0; i != n; i++)
+	{
+		replay = 0;
+		for (int j = i+1; j != n; j++)
+		{
+			if (arr[i] == arr[j])
+				replay++;
+		}
+		for (int l = i - 1; l >= 0; l--)
+		{
+			if (arr[i] == arr[l])
+				replay = 0;
+		}
+		if (replay > 0)
+		{
+			cout << "Элемент " << arr[i] << " повторяется " << replay << " раз(а). " << endl;
+			not_replay++;
+		}
+	}
+	if (replay == 0 && not_replay == 0) cout << "Повторяющихся элементов нет." << endl;
+}
+
+void UniqueRand(int arr[], int n)
+{
+		for (int i = 0; i < n; i++)
+		{
+			arr[i] = rand() % 100;
+			for (int j = i; i < j; j++)
+				{
+					if (arr[j] == arr[i])
+					{
+						i--;
+						break;
+					}
+				}
+		}
+	cout << endl;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+//void shiftRight(int arr[], const int n)
+	//{
+	//	//Fillrand(arr, n)
+	//	const int s = 5;
+	//	int arr_2[s];
+	//	int a; cout << "Введите размер сдвига: "; cin >> a;
+	//	//a %= n;
+	//	int f;
+	//	for (int i = 0; i < n; i++)
+	//	{
+	//		arr_2[i] = arr[i];
+	//		cout << arr_2[i] << "\t";
+	//	}
+	//	cout << endl;
+	//
+	//	for (int i = 0; i < n; i++)
+	//	{
+	//		if (0 - a + i >= 0)
+	//			a = 0;
+	//		arr[i] = arr_2[i+1-a];
+	//		cout << arr[i] << "\t";
+	//	}
+
+
+
+
 //void shiftRight(int arr[], const int n)
 //{
-//	//Fillrand(arr, n)
-//	const int s = 5;
-//	int arr_2[s];
 //	int a; cout << "Введите размер сдвига: "; cin >> a;
-//	//a %= n;
-//	int f;
+//	a %= n;
+//	if (a == 0)
+//		a = -1;
+//	int f = arr[0];
 //	for (int i = 0; i < n; i++)
 //	{
-//		arr_2[i] = arr[i];
-//		cout << arr_2[i] << "\t";
-//	}
-//	cout << endl;
-//
-//	for (int i = 0; i < n; i++)
-//	{
-//		if (0 - a + i >= 0)
-//			a = 0;
-//		arr[i] = arr_2[i+1-a];
+//		if (i + 5 - a == 5)
+//			a = 6;
+//		arr[i] = arr[i +5 - a];
 //		cout << arr[i] << "\t";
 //	}
 
-
-
-
-void shiftRight(int arr[], const int n)
-{
-	int a; cout << "Введите размер сдвига: "; cin >> a;
-	a %= n;
-	if (a == 0)
-		a = -1;
-	int f = arr[0];
-	for (int i = 0; i < n; i++)
-	{
-		if (i + 5 - a == 5)
-			a = 6;
-		arr[i] = arr[i +5 - a];
-		cout << arr[i] << "\t";
-	}
-
-	/*for (int i = n; i > 0; i--)
-	{
-		f = arr[i];
-		arr[i] = arr[i - a];
-		arr[a] = f;
-	}*/
-
-	/*for (int i=0; i < n; i++)
-	{
-		if (n - a + i>n)
+		/*for (int i = n; i > 0; i--)
 		{
-			a -= 4;
-		}
-		f = arr[i];
-		arr[i] = arr[n-a+i];
-		arr[a + i] = f;
-	}*/
+			f = arr[i];
+			arr[i] = arr[i - a];
+			arr[a] = f;
+		}*/
+
+		/*for (int i=0; i < n; i++)
+		{
+			if (n - a + i>n)
+			{
+				a -= 4;
+			}
+			f = arr[i];
+			arr[i] = arr[n-a+i];
+			arr[a + i] = f;
+		}*/
 	//return (void)Print(arr, n);
-}
-//void shiftLeft(int arr[], const int n)
+//}
+	//void shiftLeft(int arr[], const int n)
 
