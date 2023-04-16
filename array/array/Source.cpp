@@ -1,4 +1,4 @@
-#include<iostream>
+ï»¿#include<iostream>
 #include<conio.h>
 using namespace std;
 int shiftLeft(int arr[], const int n);
@@ -14,12 +14,12 @@ int shiftRight(int arr[], const int n);
 void main()
 {
 	setlocale(LC_ALL, "");
-	const int n = 5;	// = 5; //îáÿçàòåëüíîå óñëîâèå
+	const int n = 5;	// = 5; //Ð¾Ð±ÑÐ·Ð°Ñ‚ÐµÐ»ÑŒÐ½Ð¾Ðµ ÑƒÑÐ»Ð¾Ð²Ð¸Ðµ
 						//cin >> n;
 	int arr[n];
 						//arr[2] = 123;
 						//cout << arr[2] << endl;
-	cout << "Ââåäèòå ýëåìåíòû ìàññèâà: ";
+	cout << "Ð’Ð²ÐµÐ´Ð¸Ñ‚Ðµ ÑÐ»ÐµÐ¼ÐµÐ½Ñ‚Ñ‹ Ð¼Ð°ÑÑÐ¸Ð²Ð°: ";
 	for (int i = 0; i < n; i++)
 	{
 		cin >> arr[i];
@@ -31,7 +31,7 @@ void main()
 		if (arr[i] > max)
 			max = arr[i];
 	}
-	cout << "Íàèáîëüøèé ýëåìåíò ìàññèâà: " << max << endl;
+	cout << "ÐÐ°Ð¸Ð±Ð¾Ð»ÑŒÑˆÐ¸Ð¹ ÑÐ»ÐµÐ¼ÐµÐ½Ñ‚ Ð¼Ð°ÑÑÐ¸Ð²Ð°: " << max << endl;
 
 	int min = arr[0];
 	for (int i = 1; i < n; i++)
@@ -39,16 +39,16 @@ void main()
 		if (arr[i] < min)
 			min = arr[i];
 	}
-	cout << "Íàèìåíüøèé ýëåìåíò ìàññèâà: " << min << endl;
+	cout << "ÐÐ°Ð¸Ð¼ÐµÐ½ÑŒÑˆÐ¸Ð¹ ÑÐ»ÐµÐ¼ÐµÐ½Ñ‚ Ð¼Ð°ÑÑÐ¸Ð²Ð°: " << min << endl;
 
 	float sum= arr[0];
 	for (int i = 1; i < n; i++)
 	{
 		sum += arr[i];
 	}
-	cout <<"Ñðåäíåå àðèôìèòå÷åñêîå ìàññèâà: "<< sum / n << endl;
-	cout <<"Ñóììà ìàññèâà: "<< sum << endl;
-	cout << "Âûáåðåòå ñìåùåíèå: <-     ->" << endl;
+	cout <<"Ð¡Ñ€ÐµÐ´Ð½ÐµÐµ Ð°Ñ€Ð¸Ñ„Ð¼Ð¸Ñ‚ÐµÑ‡ÐµÑÐºÐ¾Ðµ Ð¼Ð°ÑÑÐ¸Ð²Ð°: "<< sum / n << endl;
+	cout <<"Ð¡ÑƒÐ¼Ð¼Ð° Ð¼Ð°ÑÑÐ¸Ð²Ð°: "<< sum << endl;
+	cout << "Ð’Ñ‹Ð±ÐµÑ€ÐµÑ‚Ðµ ÑÐ¼ÐµÑ‰ÐµÐ½Ð¸Ðµ: <-     ->" << endl;
 	
 	int code = _getch();
 	cout << code << endl;
@@ -71,7 +71,7 @@ void main()
 int shiftLeft(int arr[], const int n)
 {
 	int m;
-	cout << "Ââåäèòå ñìåùåíèå: "; cin >> m;
+	cout << "Ð’Ð²ÐµÐ´Ð¸Ñ‚Ðµ ÑÐ¼ÐµÑ‰ÐµÐ½Ð¸Ðµ: "; cin >> m;
 	m = m % n;
 	for (m; m != 0; m--)
 	{
@@ -89,7 +89,7 @@ int shiftLeft(int arr[], const int n)
 int shiftRight(int arr[], const int n)
 {
 	int m;
-	cout << "Ââåäèòå ñìåùåíèå: "; cin >> m;
+	cout << "Ð’Ð²ÐµÐ´Ð¸Ñ‚Ðµ ÑÐ¼ÐµÑ‰ÐµÐ½Ð¸Ðµ: "; cin >> m;
 	m = m % n;
 	for (m; m != 0; m--)
 	{
