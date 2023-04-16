@@ -1,4 +1,4 @@
-#include<iostream>
+ï»¿#include<iostream>
 using namespace std;
 
 #define delimeter "\n---------------------------------------\n"
@@ -16,7 +16,7 @@ void main()
 {
 	setlocale(LC_ALL, "");
 	int a, b;
-	cout << "Ââåäèòå äâà ÷èñëà: "; cin >> a >> b;
+	cout << "Ð’Ð²ÐµÐ´Ð¸Ñ‚Ðµ Ð´Ð²Ð° Ñ‡Ð¸ÑÐ»Ð°: "; cin >> a >> b;
 
 	int c = Sum(a, b);
 	cout << a << " + " << b << " = " << c << endl;
@@ -24,7 +24,7 @@ void main()
 	cout << a << " * " << b << " = " << Product(a, b) << endl;
 	cout << a << " / " << b << " = " << Quotient(a, b) << endl;
 	cout << a << " % " << b << " = " << Reminder(a, b) << endl;
-	cout << "Ôàêòîðèàë " << a << " = " << Factorial(a) << endl;
+	cout << "Ð¤Ð°ÐºÑ‚Ð¾Ñ€Ð¸Ð°Ð» " << a << " = " << Factorial(a) << endl;
 	cout << a << " ^ " << b << " = " << Power(a, b) << endl;
 
 
@@ -37,14 +37,14 @@ int Sum(int a, int b)
 }
 int Dif(int a, int b)
 {
-	//difference - ðàçíîñòü
+	//difference - Ñ€Ð°Ð·Ð½Ð¾ÑÑ‚ÑŒ
 	return a - b;
 }
-int Product(int a, int b) // ïðîèçâåäåíèå
+int Product(int a, int b) // Ð¿Ñ€Ð¾Ð¸Ð·Ð²ÐµÐ´ÐµÐ½Ð¸Ðµ
 {
 	return a * b;
 }
-double Quotient(double a, double b) // ÷àñòíîå
+double Quotient(double a, double b) // Ñ‡Ð°ÑÑ‚Ð½Ð¾Ðµ
 {
 	return a / b;
 }

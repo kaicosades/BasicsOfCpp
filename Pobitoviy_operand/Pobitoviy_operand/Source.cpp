@@ -1,12 +1,12 @@
-#include <iostream>
+ï»¿#include <iostream>
 using namespace std;
 
 void main()
 {
 	setlocale(LC_ALL, "");
 	int a, b;
-	cout << "Ââåäèòå ïåðåìåííóþ à:"; cin >> a;
-	cout << endl << "Ââåäèòå ïåðåìåííóþ b:"; cin >> b;
+	cout << "Ð’Ð²ÐµÐ´Ð¸Ñ‚Ðµ Ð¿ÐµÑ€ÐµÐ¼ÐµÐ½Ð½ÑƒÑŽ Ð°:"; cin >> a;
+	cout << endl << "Ð’Ð²ÐµÐ´Ð¸Ñ‚Ðµ Ð¿ÐµÑ€ÐµÐ¼ÐµÐ½Ð½ÑƒÑŽ b:"; cin >> b;
 	a = a ^ b;
 	b = a ^ b;
 	a ^= b;

@@ -1,4 +1,4 @@
-#include<iostream>
+ï»¿#include<iostream>
 #include<conio.h>
 using namespace  std;
 void Fillrand(int arr[], const int n);
@@ -19,14 +19,14 @@ void main()
 	int arr[n];
 	Fillrand(arr, n);
 	Print(arr, n);
-	cout << "Ñóììà ýëåìåíòîâ ìàññèâà: " << Sum(arr, n) << endl;
-	cout << "Ìèíèìàëüíîå çíà÷åíèå â ìàññèâå: " << minValueIn(arr, n) << endl;
-	cout << "Ìàêñèìàëüíîå çíà÷åíèå â ìàññèâå: " << maxValueIn(arr, n) << endl;
-	cout << "Ñóììà âñåõ ýëåìåíòîâ â ìàññèâå: " << Sum(arr, n) << endl;
-	cout << "Ñðåäíåå àðèôìåòè÷åñêîå ýëåìåíòîâ â ìàññèâå: " << Avg(arr, n) << endl;
+	cout << "Ð¡ÑƒÐ¼Ð¼Ð° ÑÐ»ÐµÐ¼ÐµÐ½Ñ‚Ð¾Ð² Ð¼Ð°ÑÑÐ¸Ð²Ð°: " << Sum(arr, n) << endl;
+	cout << "ÐœÐ¸Ð½Ð¸Ð¼Ð°Ð»ÑŒÐ½Ð¾Ðµ Ð·Ð½Ð°Ñ‡ÐµÐ½Ð¸Ðµ Ð² Ð¼Ð°ÑÑÐ¸Ð²Ðµ: " << minValueIn(arr, n) << endl;
+	cout << "ÐœÐ°ÐºÑÐ¸Ð¼Ð°Ð»ÑŒÐ½Ð¾Ðµ Ð·Ð½Ð°Ñ‡ÐµÐ½Ð¸Ðµ Ð² Ð¼Ð°ÑÑÐ¸Ð²Ðµ: " << maxValueIn(arr, n) << endl;
+	cout << "Ð¡ÑƒÐ¼Ð¼Ð° Ð²ÑÐµÑ… ÑÐ»ÐµÐ¼ÐµÐ½Ñ‚Ð¾Ð² Ð² Ð¼Ð°ÑÑÐ¸Ð²Ðµ: " << Sum(arr, n) << endl;
+	cout << "Ð¡Ñ€ÐµÐ´Ð½ÐµÐµ Ð°Ñ€Ð¸Ñ„Ð¼ÐµÑ‚Ð¸Ñ‡ÐµÑÐºÐ¾Ðµ ÑÐ»ÐµÐ¼ÐµÐ½Ñ‚Ð¾Ð² Ð² Ð¼Ð°ÑÑÐ¸Ð²Ðµ: " << Avg(arr, n) << endl;
 	Search(arr, n);
 	UniqueRand(arr, n);
-	cout << "Ìàññèâ ñ óíèêàëüíûìè ýëåìåíòàìè: ";
+	cout << "ÐœÐ°ÑÑÐ¸Ð² Ñ ÑƒÐ½Ð¸ÐºÐ°Ð»ÑŒÐ½Ñ‹Ð¼Ð¸ ÑÐ»ÐµÐ¼ÐµÐ½Ñ‚Ð°Ð¼Ð¸: ";
 	Print(arr, n);
 }
 
@@ -100,11 +100,11 @@ void Search( int arr[],  int n)
 		}
 		if (replay > 0)
 		{
-			cout << "Ýëåìåíò " << arr[i] << " ïîâòîðÿåòñÿ " << replay << " ðàç(à). " << endl;
+			cout << "Ð­Ð»ÐµÐ¼ÐµÐ½Ñ‚ " << arr[i] << " Ð¿Ð¾Ð²Ñ‚Ð¾Ñ€ÑÐµÑ‚ÑÑ " << replay << " Ñ€Ð°Ð·(Ð°). " << endl;
 			not_replay++;
 		}
 	}
-	if (replay == 0 && not_replay == 0) cout << "Ïîâòîðÿþùèõñÿ ýëåìåíòîâ íåò." << endl;
+	if (replay == 0 && not_replay == 0) cout << "ÐŸÐ¾Ð²Ñ‚Ð¾Ñ€ÑÑŽÑ‰Ð¸Ñ…ÑÑ ÑÐ»ÐµÐ¼ÐµÐ½Ñ‚Ð¾Ð² Ð½ÐµÑ‚." << endl;
 }
 
 void UniqueRand(int arr[], int n)
@@ -156,7 +156,7 @@ void UniqueRand(int arr[], int n)
 	//	//Fillrand(arr, n)
 	//	const int s = 5;
 	//	int arr_2[s];
-	//	int a; cout << "Ââåäèòå ðàçìåð ñäâèãà: "; cin >> a;
+	//	int a; cout << "Ð’Ð²ÐµÐ´Ð¸Ñ‚Ðµ Ñ€Ð°Ð·Ð¼ÐµÑ€ ÑÐ´Ð²Ð¸Ð³Ð°: "; cin >> a;
 	//	//a %= n;
 	//	int f;
 	//	for (int i = 0; i < n; i++)
@@ -179,7 +179,7 @@ void UniqueRand(int arr[], int n)
 
 //void shiftRight(int arr[], const int n)
 //{
-//	int a; cout << "Ââåäèòå ðàçìåð ñäâèãà: "; cin >> a;
+//	int a; cout << "Ð’Ð²ÐµÐ´Ð¸Ñ‚Ðµ Ñ€Ð°Ð·Ð¼ÐµÑ€ ÑÐ´Ð²Ð¸Ð³Ð°: "; cin >> a;
 //	a %= n;
 //	if (a == 0)
 //		a = -1;
