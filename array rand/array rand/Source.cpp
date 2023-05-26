@@ -1,16 +1,17 @@
-﻿#include<iostream>
-#include<conio.h>
-using namespace  std;
-void Fillrand(int arr[], const int n);
-void Print(const int arr[], const int n);
-int Sum(const int arr[], const int n);
-double Avg(const int arr[], const int n);
-int minValueIn(const int arr[], const int n);
-int maxValueIn(const int arr[], const int n);
-void Search( int arr[],  int n);
-void UniqueRand(int arr[], int n);
+﻿#include"stdafx.h"
+#include"constants.h"
+#include"FillRand.h"
+#include"Print.h"
+#include"Statistics.h"
+#include"Sort.h"
+#include"Search.h"
+
+
+
+
 //void shiftRight(int arr[], const int n);
 //void shiftLeft(int arr[], const int n);
+
 
 void main()
 {
@@ -30,99 +31,14 @@ void main()
 	Print(arr, n);
 }
 
-void Fillrand(int arr[], const int n)
-{
-	for (int i = 0; i < n; i++)
-	{
-		arr[i] = rand()%100;
-	}
-}
 
-void Print(const int arr[], const int n)
-{
-	for (int i = 0; i < n; i++)
-	{
-		cout << arr[i] << "\t";
-	}
-		cout << endl;
-}
 
-int Sum(const int arr[], const int n)
-{
-	int sum = 0;
-	for (int i = 0; i < n; i++)
-	{
-		sum += arr[i];
-	}
-	return sum;
-}
 
-double Avg(const int arr[], const int n)
-{
-	return (double)Sum(arr, n)/n;
-}
 
-int minValueIn(const int arr[], const int n)
-{
-	int min = arr[0];
-	for (int i = 0; i < n; i++)
-	{
-		if (arr[i] < min)min = arr[i];
-	}
-	return min;
-}
-int maxValueIn(const int arr[], const int n)
-{
-	int max = arr[0];
-	for (int i = 0; i < n; i++)
-	{
-		if (arr[i] > max)max = arr[i];
-	}
-	return max;
-}
 
-void Search( int arr[],  int n)
-{
-	int replay = 0;
-	int not_replay = 0;
-	for (int i = 0; i != n; i++)
-	{
-		replay = 0;
-		for (int j = i+1; j != n; j++)
-		{
-			if (arr[i] == arr[j])
-				replay++;
-		}
-		for (int l = i - 1; l >= 0; l--)
-		{
-			if (arr[i] == arr[l])
-				replay = 0;
-		}
-		if (replay > 0)
-		{
-			cout << "Элемент " << arr[i] << " повторяется " << replay << " раз(а). " << endl;
-			not_replay++;
-		}
-	}
-	if (replay == 0 && not_replay == 0) cout << "Повторяющихся элементов нет." << endl;
-}
 
-void UniqueRand(int arr[], int n)
-{
-		for (int i = 0; i < n; i++)
-		{
-			arr[i] = rand() % 100;
-			for (int j = i; i < j; j++)
-				{
-					if (arr[j] == arr[i])
-					{
-						i--;
-						break;
-					}
-				}
-		}
-	cout << endl;
-}
+
+
 
 
 
