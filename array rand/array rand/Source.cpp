@@ -2,14 +2,29 @@
 #include<conio.h>
 using namespace  std;
 
+const int ROWS = 3;
+const int COLS = 4;
+
 void Fillrand(int arr[], const int n);
+void FillrandTwo(int arr[ROWS][COLS], const int ROWS, const int COLS);
+
 void UniqueRand(int arr[], int n);
+
 void Print(const int arr[], const int n);
+void PrintTwo(int arr[ROWS][COLS], const int ROWS, const int COLS);
+
 void Search(int arr[], int n);
 int Sum(const int arr[], const int n);
 double Avg(const int arr[], const int n);
 int minValueIn(const int arr[], const int n);
 int maxValueIn(const int arr[], const int n);
+
+
+
+//int Print_a(const int arr[], const int ROWC, const int  COLS);
+
+//#define ONE_MACC
+#define TWO_MACC
 
 
 
@@ -20,20 +35,34 @@ int maxValueIn(const int arr[], const int n);
 
 void main()
 {
-	setlocale(LC_ALL, "");
-	const int n = 5;
-	int arr[n];
-	Fillrand(arr, n);
-	Print(arr, n);
-	cout << "Сумма элементов массива: " << Sum(arr, n) << endl;
-	cout << "Минимальное значение в массиве: " << minValueIn(arr, n) << endl;
-	cout << "Максимальное значение в массиве: " << maxValueIn(arr, n) << endl;
-	cout << "Сумма всех элементов в массиве: " << Sum(arr, n) << endl;
-	cout << "Среднее арифметическое элементов в массиве: " << Avg(arr, n) << endl;
-	Search(arr, n);
-	UniqueRand(arr, n);
-	cout << "Массив с уникальными элементами: ";
-	Print(arr, n);
+#ifdef ONE_MACC
+	{
+		setlocale(LC_ALL, "");
+		const int n = 5;
+		int arr[n];
+		Fillrand(arr, n);
+		Print(arr, n);
+		cout << "Сумма элементов массива: " << Sum(arr, n) << endl;
+		cout << "Минимальное значение в массиве: " << minValueIn(arr, n) << endl;
+		cout << "Максимальное значение в массиве: " << maxValueIn(arr, n) << endl;
+		cout << "Сумма всех элементов в массиве: " << Sum(arr, n) << endl;
+		cout << "Среднее арифметическое элементов в массиве: " << Avg(arr, n) << endl;
+		Search(arr, n);
+		UniqueRand(arr, n);
+		cout << "Массив с уникальными элементами: ";
+		Print(arr, n);
+	}
+#endif
+
+#ifdef TWO_MACC
+	{
+		
+		int arr[ROWS][COLS];
+		FillrandTwo(arr, ROWS, COLS);
+		PrintTwo(arr, ROWS, COLS);
+
+	}
+#endif
 }
 
 
@@ -106,12 +135,30 @@ void Print(const int arr[], const int n)
 	}
 	cout << endl;
 }
+void PrintTwo(int arr[ROWS][COLS], const int ROWS, const int COLS)
+{
+	for (int i = 0; i < ROWS; i++)
+	{
+		for (int j = 0; j <COLS; j++)
+		cout << arr[i][j] << "\t";
+		cout << endl;
+	}
+	cout << endl;
+}
 
 void Fillrand(int arr[], const int n)
 {
 	for (int i = 0; i < n; i++)
 	{
 		arr[i] = rand() % 100;
+	}
+}
+void FillrandTwo(int arr[ROWS][COLS], const int ROWS, const int COLS)
+{
+	for (int i = 0; i < ROWS; i++)
+	{
+		for (int j = 0; j < COLS; j++)
+		arr[i][j] = rand() % 100;
 	}
 }
 
