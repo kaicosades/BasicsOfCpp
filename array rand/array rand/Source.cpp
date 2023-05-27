@@ -8,10 +8,14 @@ const int COLS = 4;
 void Fillrand(int arr[], const int n);
 void FillrandTwo(int arr[ROWS][COLS], const int ROWS, const int COLS);
 
-void UniqueRand(int arr[], int n);
-
 void Print(const int arr[], const int n);
 void PrintTwo(int arr[ROWS][COLS], const int ROWS, const int COLS);
+
+void UniqueRand(int arr[], int n);
+
+void shift(int arr[], int n);
+int shiftLeft(int arr[], const int n);
+int shiftRight(int arr[], const int n);
 
 void Search(int arr[], int n);
 int Sum(const int arr[], const int n);
@@ -23,14 +27,10 @@ int maxValueIn(const int arr[], const int n);
 
 //int Print_a(const int arr[], const int ROWC, const int  COLS);
 
-//#define ONE_MACC
-#define TWO_MACC
+#define ONE_MACC
+//#define TWO_MACC
 
 
-
-
-//void shiftRight(int arr[], const int n);
-//void shiftLeft(int arr[], const int n);
 
 
 void main()
@@ -51,18 +51,57 @@ void main()
 		UniqueRand(arr, n);
 		cout << "Массив с уникальными элементами: ";
 		Print(arr, n);
+		shift(arr, n);
+		Print(arr, n);
+
 	}
 #endif
 
 #ifdef TWO_MACC
 	{
-		
+
 		int arr[ROWS][COLS];
 		FillrandTwo(arr, ROWS, COLS);
 		PrintTwo(arr, ROWS, COLS);
 
 	}
 #endif
+}
+
+
+void Fillrand(int arr[], const int n)
+{
+	for (int i = 0; i < n; i++)
+	{
+		arr[i] = rand() % 100;
+	}
+}
+void FillrandTwo(int arr[ROWS][COLS], const int ROWS, const int COLS)
+{
+	for (int i = 0; i < ROWS; i++)
+	{
+		for (int j = 0; j < COLS; j++)
+			arr[i][j] = rand() % 100;
+	}
+}
+
+void Print(const int arr[], const int n)
+{
+	for (int i = 0; i < n; i++)
+	{
+		cout << arr[i] << "\t";
+	}
+	cout << endl;
+}
+void PrintTwo(int arr[ROWS][COLS], const int ROWS, const int COLS)
+{
+	for (int i = 0; i < ROWS; i++)
+	{
+		for (int j = 0; j < COLS; j++)
+			cout << arr[i][j] << "\t";
+		cout << endl;
+	}
+	cout << endl;
 }
 
 
@@ -127,41 +166,6 @@ void Search(int arr[], int n)
 	if (replay == 0 && not_replay == 0) cout << "Повторяющихся элементов нет." << endl;
 }
 
-void Print(const int arr[], const int n)
-{
-	for (int i = 0; i < n; i++)
-	{
-		cout << arr[i] << "\t";
-	}
-	cout << endl;
-}
-void PrintTwo(int arr[ROWS][COLS], const int ROWS, const int COLS)
-{
-	for (int i = 0; i < ROWS; i++)
-	{
-		for (int j = 0; j <COLS; j++)
-		cout << arr[i][j] << "\t";
-		cout << endl;
-	}
-	cout << endl;
-}
-
-void Fillrand(int arr[], const int n)
-{
-	for (int i = 0; i < n; i++)
-	{
-		arr[i] = rand() % 100;
-	}
-}
-void FillrandTwo(int arr[ROWS][COLS], const int ROWS, const int COLS)
-{
-	for (int i = 0; i < ROWS; i++)
-	{
-		for (int j = 0; j < COLS; j++)
-		arr[i][j] = rand() % 100;
-	}
-}
-
 void UniqueRand(int arr[], int n)
 {
 	for (int i = 0; i < n; i++)
@@ -179,15 +183,59 @@ void UniqueRand(int arr[], int n)
 	cout << endl;
 }
 
+int shiftLeft(int arr[], const int n)
+{
+	int m;
+	cout << "Введите смещение: "; cin >> m;
+	m = m % n;
+	for (m; m != 0; m--)
+	{
+		int a = arr[0];
+		for (int i = 0; i < n; i++)
+		{
+			arr[i] = arr[i + 1];
+		}
+		arr[n - 1] = a;
 
 
+	}
+	return arr[n];
+}
+int shiftRight(int arr[], const int n)
+{
+	int m;
+	cout << "Введите смещение: "; cin >> m;
+	m = m % n;
+	for (m; m != 0; m--)
+	{
+		int a = arr[n - 1];
+		for (int i = n - 1; i > 0; i--)
+		{
+			arr[i] = arr[i - 1];
+		}
+		arr[0] = a;
 
+	}
+	return arr[n];
+}
 
+void shift(int arr[], int n)
+{
+	cout << "Выберете смещение: <-     ->" << endl;
 
-
-
-
-
+	int code = _getch();
+	//cout << code << endl;
+	if (code == 0 || code == 224)
+		code = _getch();
+	//cout << code;
+	switch (code)
+	{
+	case 75: shiftLeft(arr, n);
+		break;
+	case 77: shiftRight(arr, n);
+		break;
+	}
+}
 
 
 
