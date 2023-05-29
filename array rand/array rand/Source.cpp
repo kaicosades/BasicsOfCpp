@@ -93,7 +93,7 @@ void FillrandTwo(int arr[ROWS][COLS], const int ROWS, const int COLS)
 	for (int i = 0; i < ROWS; i++)
 	{
 		for (int j = 0; j < COLS; j++)
-			arr[i][j] = rand() % 12;
+			arr[i][j] = rand() % 100;
 	}
 }
 
@@ -245,39 +245,55 @@ void Search(int arr[], int n)
 }
 void SearchTwo(int arr[ROWS][COLS], const int ROWS, const int COLS) 
 {
+	int replay;
+	int not_replay = 0;
 	for (int i = 0; i < ROWS; i++)
-	{
-		
+	{	
 		for (int j = 0; j < COLS; j++)
 		{
-			int replay = 0;
-			for (int ii = 0; ii < ROWS; ii++)
+			replay = 0;
+			for (int ii = i; ii < ROWS; ii++)
 			{
 				int jj = 0;
-				if (j == COLS - 1)
+				if (i == ii) jj = j + 1;
+				if ((j == COLS - 1) && (i == ii))
 				{
 					jj = 0;
 					ii++;
 				}
-				else
-					jj = j;
 				for (jj; jj < COLS; jj++)
 				{
 					if (arr[i][j] == arr[ii][jj])
 						replay++;
 				}
-				
-				
 			}
-			
+			if (replay > 0)
+			{
+				for (int l = i; l >= 0; l--)
+				{
+					int m = j - 1;
+					if ( (j == 0) && (l==i))
+					{
+						l--;
+						m = COLS - 1;
+					}
+					if (l < i) m = COLS - 1;
+					for ( m ; m >= 0; m--)
+						if (arr[l][m] == arr[i][j])
+							replay = 0;
+				}
+			}
 			if (replay > 0)
 			{
 				cout << "Элемент " << arr[i][j] << " повторяется " << replay << " раз(а). " << endl;
+				not_replay++;
 			}
 		}
 
 	}
+	if (replay == 0 && not_replay == 0) cout << "Повторяющихся элементов нет." << endl;
 }
+
 
 
 int Sum(const int arr[], const int n)
