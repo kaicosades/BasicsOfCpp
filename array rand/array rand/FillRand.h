@@ -1,5 +1,5 @@
 #pragma once
 #include"constants.h"
 #include"stdafx.h"
-void Fillrand(int arr[], const int n);
-void UniqueRand(int arr[], int n);
+template<typename T>void Fillrand(T arr[], const int n);
+template<typename T>void Fillrand(T arr[ROWS][COLS], const int ROWS, const int COLS);
