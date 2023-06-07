@@ -1,7 +1,7 @@
-#include <iostream>
+п»ї#include <iostream>
 #include <Windows.h>
 
-int StringLenght(char* str); // * - указатель на ячейку памяти
+int StringLenght(char* str); // * - СѓРєР°Р·Р°С‚РµР»СЊ РЅР° СЏС‡РµР№РєСѓ РїР°РјСЏС‚Рё
 void to_lower(char* str);
 void to_upper(char* str);
 void shrink(char* str);
@@ -18,35 +18,35 @@ void main()
 	#ifdef STR
 	{
 		//cout << "Hello String"<< endl;
-		//char  str[] = { 'H', 'e', 'l', 'l', 'o' , 0 }; // 0 - убирает мусор в конце
+		//char  str[] = { 'H', 'e', 'l', 'l', 'o' , 0 }; // 0 - СѓР±РёСЂР°РµС‚ РјСѓСЃРѕСЂ РІ РєРѕРЅС†Рµ
 		char str[] = "Hello";
-		str[1] = 'o'; // можно менять элементы
+		str[1] = 'o'; // РјРѕР¶РЅРѕ РјРµРЅСЏС‚СЊ СЌР»РµРјРµРЅС‚С‹
 		cout << str << endl;
 
 		const char* str2 = "World";
-		//элементы нельзя менять потому что константа
+		//СЌР»РµРјРµРЅС‚С‹ РЅРµР»СЊР·СЏ РјРµРЅСЏС‚СЊ РїРѕС‚РѕРјСѓ С‡С‚Рѕ РєРѕРЅСЃС‚Р°РЅС‚Р°
 		cout << str2 << endl;
 	}
 	#endif
 
 	const int SIZE = 256;
 	char str[SIZE] = {};
-	cout << "Введите строку: "; //cin >> str;
+	cout << "Р’РІРµРґРёС‚Рµ СЃС‚СЂРѕРєСѓ: "; //cin >> str;
 	SetConsoleCP(1251);
-	cin.getline(str, SIZE); // getline знает размер строки
-	//SetConsoleCP(866);// - вернуть для гарантированного варианта
+	cin.getline(str, SIZE); // getline Р·РЅР°РµС‚ СЂР°Р·РјРµСЂ СЃС‚СЂРѕРєРё
+	//SetConsoleCP(866);// - РІРµСЂРЅСѓС‚СЊ РґР»СЏ РіР°СЂР°РЅС‚РёСЂРѕРІР°РЅРЅРѕРіРѕ РІР°СЂРёР°РЅС‚Р°
 	cout << str << endl;
-	cout << "Размер введенной строки: " << StringLenght(str) << endl;
-	cout << "Строка в нижнем регистре : ";
+	cout << "Р Р°Р·РјРµСЂ РІРІРµРґРµРЅРЅРѕР№ СЃС‚СЂРѕРєРё: " << StringLenght(str) << endl;
+	cout << "РЎС‚СЂРѕРєР° РІ РЅРёР¶РЅРµРј СЂРµРіРёСЃС‚СЂРµ : ";
 	//to_lower(str);
 	cout << str << endl;
-	cout << "Строка в верхнем регистре : ";
+	cout << "РЎС‚СЂРѕРєР° РІ РІРµСЂС…РЅРµРј СЂРµРіРёСЃС‚СЂРµ : ";
 	//to_upper(str);
 	cout << str << endl;
-	cout << "Строка без лишних пробелов : ";
+	cout << "РЎС‚СЂРѕРєР° Р±РµР· Р»РёС€РЅРёС… РїСЂРѕР±РµР»РѕРІ : ";
 	//shrink(str);
 	cout << str << endl;
-	cout << "Размер введенной строки: " << StringLenght(str) << endl;
+	cout << "Р Р°Р·РјРµСЂ РІРІРµРґРµРЅРЅРѕР№ СЃС‚СЂРѕРєРё: " << StringLenght(str) << endl;
 	is_palindrome(str);
 	is_int_number(str);
 	
@@ -55,7 +55,7 @@ void main()
 int StringLenght(char* str)
 {
 	int m = 0;
-	for (m; str[m]; m++) {} // квадртаные скобки разименновывет массив
+	for (m; str[m]; m++) {} // РєРІР°РґСЂС‚Р°РЅС‹Рµ СЃРєРѕР±РєРё СЂР°Р·РёРјРµРЅРЅРѕРІС‹РІРµС‚ РјР°СЃСЃРёРІ
 	return m;
 }
 void to_lower(char* str)
@@ -84,8 +84,8 @@ void shrink(char* str)
 	int m = 0;
 	for (m; str[m];m++)
 	{
-		int i = 1; //Когда след элемент не пробел
-		int whitespace = 0; //Сколько пробелов за один цикл
+		int i = 1; //РљРѕРіРґР° СЃР»РµРґ СЌР»РµРјРµРЅС‚ РЅРµ РїСЂРѕР±РµР»
+		int whitespace = 0; //РЎРєРѕР»СЊРєРѕ РїСЂРѕР±РµР»РѕРІ Р·Р° РѕРґРёРЅ С†РёРєР»
 		if(str[m] == ' ')
 		{
 			for (str[m + i]; str[m+i] == ' '; i++)
@@ -93,7 +93,7 @@ void shrink(char* str)
 		}
 		for(whitespace; whitespace > 0; whitespace--)
 		{
-			int n = m; //элементы после проверенного массива, которые нужно передвинуть
+			int n = m; //СЌР»РµРјРµРЅС‚С‹ РїРѕСЃР»Рµ РїСЂРѕРІРµСЂРµРЅРЅРѕРіРѕ РјР°СЃСЃРёРІР°, РєРѕС‚РѕСЂС‹Рµ РЅСѓР¶РЅРѕ РїРµСЂРµРґРІРёРЅСѓС‚СЊ
 			for (n; str[n]; n++)
 				str[n] = str[n + 1];
 		}
@@ -113,9 +113,9 @@ void is_palindrome(char* str)
 			p++;
 	} 
 	if (p > 0)
-		cout << "Срока не является полиндромом." << endl;
+		cout << "РЎСЂРѕРєР° РЅРµ СЏРІР»СЏРµС‚СЃСЏ РїРѕР»РёРЅРґСЂРѕРјРѕРј." << endl;
 	else
-		cout << "Строка является полиндромом." << endl;
+		cout << "РЎС‚СЂРѕРєР° СЏРІР»СЏРµС‚СЃСЏ РїРѕР»РёРЅРґСЂРѕРјРѕРј." << endl;
 }
 void is_int_number(char* str)
 {
@@ -126,10 +126,10 @@ void is_int_number(char* str)
 		if ((int)str[m] < 48 && (int)str[m] > 57)
 			integer++;
 	}
-	if (integer > 0) cout << "Строка не является целым числом.";
+	if (integer > 0) cout << "РЎС‚СЂРѕРєР° РЅРµ СЏРІР»СЏРµС‚СЃСЏ С†РµР»С‹Рј С‡РёСЃР»РѕРј.";
 	else
 	{
-		cout << "Строка является целым числом.";
+		cout << "РЎС‚СЂРѕРєР° СЏРІР»СЏРµС‚СЃСЏ С†РµР»С‹Рј С‡РёСЃР»РѕРј.";
 		to_int_number(str);
 	}
 }
