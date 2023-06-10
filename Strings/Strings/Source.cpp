@@ -1,5 +1,7 @@
-﻿#include <iostream>
+﻿#define _CRT_SECURE_NO_WARNINGS
+#include <iostream>
 #include <Windows.h>
+#include <ctype.h>
 
 int StringLenght(char* str); // * - указатель на ячейку памяти
 void to_lower(char* str);
@@ -7,11 +9,27 @@ void to_upper(char* str);
 void shrink(char* str);
 void is_palindrome(char* str);
 void is_int_number(char* str);
-int to_int_number(char* str);
+
+char* remove_symbol(char str[], char symbol);
+char* to_upper_OA(char str[]);
+char* to_upper_OA_2(char str[]); //tolower в обратной функции
+char* shrink_OA(char str[]);
+bool is_palindrome_OA(const char str[]);
+
+bool is_int_number_TWO(const char str[]);
+char* to_int_number(char str[]);
+
+bool is_bin_number(const char str[]);
+int to_bin_number(char str[]);
+
+bool is_hex_number(const char str[]);
+int to_hex_number(const char str[]);
 
 using namespace  std;
 
 //#define STR
+//#define STR_2
+
 void main()
 {
 	setlocale(LC_ALL, "");
@@ -30,26 +48,50 @@ void main()
 	#endif
 
 	const int SIZE = 256;
-	char str[SIZE] = {};
-	cout << "Введите строку: "; //cin >> str;
-	SetConsoleCP(1251);
-	cin.getline(str, SIZE); // getline знает размер строки
-	//SetConsoleCP(866);// - вернуть для гарантированного варианта
+	char str[SIZE] = "abc"; //{} -для объявления пустой
+
+#ifdef STR_2
+	{
+		cout << "Введите строку: "; //cin >> str;
+		SetConsoleCP(1251);
+		cin.getline(str, SIZE); // getline знает размер строки
+		//SetConsoleCP(866);// - вернуть для гарантированного варианта
+	}
+#endif
+
 	cout << str << endl;
 	cout << "Размер введенной строки: " << StringLenght(str) << endl;
-	cout << "Строка в нижнем регистре : ";
+	//cout << "Строка в нижнем регистре : ";
 	//to_lower(str);
-	cout << str << endl;
-	cout << "Строка в верхнем регистре : ";
+	//cout << str << endl;
+	//cout << "Строка в верхнем регистре : ";
 	//to_upper(str);
-	cout << str << endl;
-	cout << "Строка без лишних пробелов : ";
+	//cout << str << endl;
+	//cout << "Строка без лишних пробелов : ";
 	//shrink(str);
-	cout << str << endl;
-	cout << "Размер введенной строки: " << StringLenght(str) << endl;
-	is_palindrome(str);
-	is_int_number(str);
-	
+	//cout << str << endl;
+	//cout << "Размер введенной строки: " << StringLenght(str) << endl;
+	//is_palindrome(str);
+	//is_int_number(str);
+	//cout << to_upper_OA(str) << endl;
+	cout << shrink_OA(str) << endl;
+	cout << typeid(str).name() << endl;
+	//is_palindrome_OA(str);
+	cout << "Строка " << (is_palindrome_OA(str) ? "" : "НЕ ") << "является палиндромом" << endl;
+	//is_int_number_TWO(str);
+	cout << "Строка " << (is_int_number_TWO(str) ? "" : "НЕ ") << "является целым числом" << endl;
+	cout << (is_int_number_TWO(str) ? to_int_number(str) : "") << endl;
+	cout << "Строка " << (is_bin_number(str) ? "" : "НЕ ") << "является двоичным числом" << endl;
+	//cout << (is_bin_number(str) ? to_bin_number(str) : "") << endl;										//	-Не компилится
+	if (is_bin_number(str))
+	{
+		cout << to_bin_number(str) << endl;
+	}
+	cout << "Строка " << (is_hex_number(str) ? "" : "НЕ ") << "является шестнадцатиричным числом" << endl;
+	if (is_hex_number(str))
+	{
+		cout << to_hex_number(str) << endl;
+	}
 }
 
 int StringLenght(char* str)
@@ -123,7 +165,7 @@ void is_int_number(char* str)
 	int integer = 0;
 	for (m; str[m]; m++) 
 	{
-		if ((int)str[m] < 48 && (int)str[m] > 57)
+		if ((int)str[m] < 48 || (int)str[m] > 57)
 			integer++;
 	}
 	if (integer > 0) cout << "Строка не является целым числом.";
@@ -133,38 +175,159 @@ void is_int_number(char* str)
 		to_int_number(str);
 	}
 }
-int to_int_number(char* str)
+
+char* remove_symbol(char str[], char symbol)
 {
-	return *str;
+	for (int i = 0; str[i]; i++)
+	{
+		while (str[i] == symbol)for (int j = i; str[j]; j++) str[j] = str[j + 1];
+	}
+	return str;
+}
+char* to_upper_OA(char str[])
+{
+	for (int i = 0; str[i]; i++)
+	{
+		if (str[i] >= 'a' && str[i] <= 'z')str[i] -= 32;
+		if (str[i] >= 'а' && str[i] <= 'я')str[i] -= 32;
+		if (str[i] == 'ё')str[i] -= 16;
+	}
+	return str;
+}
+char* to_upper_OA_2(char str[])
+{
+	for (int i = 0; str[i]; i++)
+	{
+		str[i] = toupper(str[i]);
+	}
+	return str;
+}
+char* shrink_OA(char str[])
+{
+	for (int i = 0; str[i]; i++)
+	{
+		while (str[i] == ' ' && str[i + 1] == ' ')for (int j = i + 1; str[j]; j++) str[j] = str[j + 1];
+	}
+	while(str[0] == ' ')for (int i = 0; str[i]; i++) str[i] = str[i + 1];
+	return str;
+}
+bool is_palindrome_OA(const char str[])
+{
+	int n = strlen(str);
+	char* buffer = new char[n + 1] {};
+	strcpy(buffer, str);// - копирует в буфер строку
+	to_upper_OA(buffer);
+	remove_symbol(buffer, ' ');
+	//cout << str;
+	n = strlen(buffer);
+	//cout << buffer;
+	for (int i = 0; i<n/2; i++)
+	{
+		if (buffer[i] != buffer[n - i - 1])
+		{
+			delete buffer;
+			return false;
+		}
+	}
+	delete buffer;
+	return true;
 }
 
+bool is_int_number_TWO(const char str[])
+{
+	int n = strlen(str);
+	char* buffer = new char[n + 1] {};
+	strcpy(buffer, str);
+	n = strlen(buffer);
+	for (int i=0; buffer[i]; i++)
+	{
+		int m = (int)buffer[i];
+		if ((int)buffer[i] < 48 || (int)buffer[i] > 57)
+		{
+			delete buffer;
+			return false;
+		}
+	}
+	delete buffer;
+	return true;
+}
+char* to_int_number(char str[])
+{
+	return str;
+}
 
+bool is_bin_number(const char str[])
+{
+	int n = strlen(str);
+	char* buffer = new char[n + 1] {};
+	strcpy(buffer, str);
+	n = strlen(buffer);
+	for (int i = 0; buffer[i]; i++)
+	{
+		int m = (int)buffer[i];
+		if ((int)buffer[i] < 48 || (int)buffer[i] > 49)
+		{
+			delete buffer;
+			return false;
+		}
+	}
+	delete buffer;
+	return true;
+}
+int to_bin_number(char str[])
+{
+	int n = StringLenght(str);
+	int result = 0;
+	for (int i = 0; i < n; i++)
+	{
+		int pow = 1;
+		for (int j = 0; j < n - i - 1; j++)pow *= 2;
+		result += ((int)str[i] - 48) * pow;
+	}
+	return result;
+}
 
-
-
-
-
-
-
-
-
-
-
-
-
-//void shrink(char* str)
-//{
-//	int m = 0;
-//	for (m; str[m];)
-//	{
-//		int i = 0;
-//		if ((str[m] == ' ') && (str[m + 1] == ' '))
-//		{
-//			for (i = m+ 1; str[i] == ' '; i++)
-//				str[i] = str[i + 1];
-//		}
-//		else
-//			m++;
-//		//cout << (int)str[m];
-//	}
-//}
+bool is_hex_number(const char str[])
+{
+	int n = strlen(str);
+	char* buffer = new char[n + 1] {};
+	strcpy(buffer, str);
+	to_upper_OA(buffer);
+	n = strlen(buffer);
+	for (int i = 0; buffer[i]; i++)
+	{
+		int m = (int)buffer[i];
+		if (((int)buffer[i] < 48 || (int)buffer[i] > 70) || ((int)buffer[i] > 57 && ((int)buffer[i] < 65)))
+		{
+			delete buffer;
+			return false;
+		}
+	}
+	delete buffer;
+	return true;
+}
+int to_hex_number(const char str[])
+{
+	int n = strlen(str);
+	char* buffer = new char[n + 1] {};
+	strcpy(buffer, str);
+	to_upper_OA(buffer);
+	n = strlen(buffer);
+	int result = 0;
+	for (int i = 0; i < n; i++)
+	{
+		int k = (int)buffer[i] - 48; //Коэфицент который нужно умножить на степень
+		int pow = 1;
+		if ((int)buffer[i] > 64 && (int)buffer[i] < 71)
+		{
+			k = (int)buffer[i] - 55;
+		}
+		for (int j = 0; j < n - i - 1; j++)
+		{
+			pow *= 16;
+		}
+		result += k * pow;
+	}
+	delete buffer;
+	return result;
+}
