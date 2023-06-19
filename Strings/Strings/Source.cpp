@@ -3,7 +3,7 @@
 #include <Windows.h>
 #include <ctype.h>
 
-int StringLenght(char* str); // * - указатель на ячейку памяти
+int StringLenght(const char* str); // * - указатель на ячейку памяти
 void to_lower(char* str);
 void to_upper(char* str);
 void shrink(char* str);
@@ -20,7 +20,7 @@ bool is_int_number_TWO(const char str[]);
 char* to_int_number(char str[]);
 
 bool is_bin_number(const char str[]);
-int to_bin_number(char str[]);
+int to_bin_number(const char str[]);
 
 bool is_hex_number(const char str[]);
 int to_hex_number(const char str[]);
@@ -48,7 +48,7 @@ void main()
 	#endif
 
 	const int SIZE = 256;
-	char str[SIZE] = "abc"; //{} -для объявления пустой
+	char str[SIZE] = "C8"; //{} -для объявления пустой
 
 #ifdef STR_2
 	{
@@ -94,7 +94,7 @@ void main()
 	}
 }
 
-int StringLenght(char* str)
+int StringLenght(const char* str)
 {
 	int m = 0;
 	for (m; str[m]; m++) {} // квадртаные скобки разименновывет массив
@@ -258,23 +258,16 @@ char* to_int_number(char str[])
 
 bool is_bin_number(const char str[])
 {
-	int n = strlen(str);
-	char* buffer = new char[n + 1] {};
-	strcpy(buffer, str);
-	n = strlen(buffer);
-	for (int i = 0; buffer[i]; i++)
+	for (int i = 0; str[i]; i++)
 	{
-		int m = (int)buffer[i];
-		if ((int)buffer[i] < 48 || (int)buffer[i] > 49)
+		if ((int)str[i] < 48 || (int)str[i] > 49)
 		{
-			delete buffer;
 			return false;
 		}
 	}
-	delete buffer;
 	return true;
 }
-int to_bin_number(char str[])
+int to_bin_number(const char str[])
 {
 	int n = StringLenght(str);
 	int result = 0;
@@ -318,14 +311,8 @@ int to_hex_number(const char str[])
 	{
 		int k = (int)buffer[i] - 48; //Коэфицент который нужно умножить на степень
 		int pow = 1;
-		if ((int)buffer[i] > 64 && (int)buffer[i] < 71)
-		{
-			k = (int)buffer[i] - 55;
-		}
-		for (int j = 0; j < n - i - 1; j++)
-		{
-			pow *= 16;
-		}
+		if ((int)buffer[i] > 64 && (int)buffer[i] < 71) k = (int)buffer[i] - 55;
+		for (int j = 0; j < n - i - 1; j++) pow *= 16;
 		result += k * pow;
 	}
 	delete buffer;
