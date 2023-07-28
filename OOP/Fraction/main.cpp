@@ -61,6 +61,18 @@ public:
 		cout << "1ArgConstruction:\t" << this << endl;
 	}
 
+	Fraction(double decimal)
+	{
+		decimal += 1e-10;
+		integer = decimal;
+		decimal -= integer;
+		denominator = 1e+9; //точность всегда будет 9 знаков после запятой
+		numerator = decimal * denominator;
+		reduce();
+		cout << "1ArgDConstructor:\t" << this << endl;
+	}
+
+
 	Fraction(int numerator, int denominator)
 	{
 		this->integer = 0;
@@ -88,6 +100,17 @@ public:
 	~Fraction()
 	{
 		cout << "Destructor:\t" << this << endl;
+	}
+
+		//Type-cast operators:
+
+	explicit operator int() //тип возвращаемого значения не указывается
+	{
+		return integer; //метод позволяет писать а=А, где А - объект
+	}
+	explicit operator double()const
+	{
+		return integer + (double)numerator / denominator;
 	}
 
 
@@ -299,6 +322,7 @@ std::istream& operator>>(std::istream& is, Fraction& obj)
 //#define DZ_30
 //#define IMPUT_CHECK_1
 //#define IMPUT_CHECK_2
+//#define CONVERTION_FROM_CLASS_TO_OTHER
 
 void main()
 {
@@ -378,5 +402,20 @@ void main()
 	cout << A << "\t" << B << "\t" << C << endl;
 #endif
 
+#ifdef CONVERTION_FROM_CLASS_TO_OTHER
 
+	Fraction A(2, 1, 2);
+	cout << A << endl;
+	double a = (int)A;
+	cout << a << endl;
+
+	Fraction B(2, 3, 4);
+	cout << B << endl;
+	double b = (double)B;
+	cout << b << endl;
+
+#endif
+
+	Fraction A = 2.76;
+	std::cout << A << std::endl;
  }
