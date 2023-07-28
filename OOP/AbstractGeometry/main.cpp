@@ -1,4 +1,4 @@
-#include<iostream>
+п»ї#include<iostream>
 #include<Windows.h>
 //#include<cmath>
 #include<math.h>
@@ -53,7 +53,7 @@ public:
 		this->side = side;
 		//return side;
 	}
-	double get_area()const override //override используется для переопеределение метода, обязательно
+	double get_area()const override //override РёСЃРїРѕР»СЊР·СѓРµС‚СЃСЏ РґР»СЏ РїРµСЂРµРѕРїРµСЂРµРґРµР»РµРЅРёРµ РјРµС‚РѕРґР°, РѕР±СЏР·Р°С‚РµР»СЊРЅРѕ
 	{
 		return side * side;
 	}
@@ -87,7 +87,7 @@ class Triangle : public Shape
 	double length_a;
 	double length_b;
 	double corner;
-	double length_c; // Для того, чтобы return area был короче. Третья сторона находится по треореме косинуса
+	double length_c; // Р”Р»СЏ С‚РѕРіРѕ, С‡С‚РѕР±С‹ return area Р±С‹Р» РєРѕСЂРѕС‡Рµ. РўСЂРµС‚СЊСЏ СЃС‚РѕСЂРѕРЅР° РЅР°С…РѕРґРёС‚СЃСЏ РїРѕ С‚СЂРµРѕСЂРµРјРµ РєРѕСЃРёРЅСѓСЃР°
 
 
 public:
@@ -142,8 +142,8 @@ public:
 	}
 	void set_length_c(double length_c)
 	{
-		//this->length_c = sqrt(pow(length_a,2) + pow(length_b,2) - 2 * length_a * length_b * cos(corner)); // Теорема Косинуса
-		this->length_c = sqrt(length_a* length_a + length_b* length_b - 2 * length_a * length_b * cos(corner * PI / 180)); // Теорема Косинуса
+		//this->length_c = sqrt(pow(length_a,2) + pow(length_b,2) - 2 * length_a * length_b * cos(corner)); // РўРµРѕСЂРµРјР° РљРѕСЃРёРЅСѓСЃР°
+		this->length_c = sqrt(length_a* length_a + length_b* length_b - 2 * length_a * length_b * cos(corner * PI / 180)); // РўРµРѕСЂРµРјР° РљРѕСЃРёРЅСѓСЃР°
 	}
 
 	double get_perimeter()const override //ctrl+ space
@@ -151,9 +151,9 @@ public:
 		return length_a+ length_b+ length_c;
 	}
 
-	double get_area()const override //override используется для переопеределение метода, обязательно
+	double get_area()const override //override РёСЃРїРѕР»СЊР·СѓРµС‚СЃСЏ РґР»СЏ РїРµСЂРµРѕРїРµСЂРµРґРµР»РµРЅРёРµ РјРµС‚РѕРґР°, РѕР±СЏР·Р°С‚РµР»СЊРЅРѕ
 	{
-		return sqrt(get_perimeter()/2 * (get_perimeter() / 2-length_a) *(get_perimeter()/2 - length_b)*(get_perimeter()/2- length_c)); //Вычисляется по форме Герона
+		return sqrt(get_perimeter()/2 * (get_perimeter() / 2-length_a) *(get_perimeter()/2 - length_b)*(get_perimeter()/2- length_c)); //Р’С‹С‡РёСЃР»СЏРµС‚СЃСЏ РїРѕ С„РѕСЂРјРµ Р“РµСЂРѕРЅР°
 	}
 	void draw()const override
 	{
@@ -201,7 +201,7 @@ public:
 		return 2*radius*PI;
 	}
 
-	double get_area()const override //override используется для переопеределение метода, обязательно
+	double get_area()const override //override РёСЃРїРѕР»СЊР·СѓРµС‚СЃСЏ РґР»СЏ РїРµСЂРµРѕРїРµСЂРµРґРµР»РµРЅРёРµ РјРµС‚РѕРґР°, РѕР±СЏР·Р°С‚РµР»СЊРЅРѕ
 	{
 		return PI * radius * radius;
 	}
@@ -231,19 +231,19 @@ void main()
 
 	//Shape shape(Color::console_blue);
 	Square square(5, Color::console_red);
-	cout << "Длинна стороны квадрата: " << square.get_side() << endl;
-	cout << "Площадь квадрата: " << square.get_area() << endl;
-	cout << "Периметр квадрата: " << square.get_perimeter() << endl;
+	cout << "Р”Р»РёРЅРЅР° СЃС‚РѕСЂРѕРЅС‹ РєРІР°РґСЂР°С‚Р°: " << square.get_side() << endl;
+	cout << "РџР»РѕС‰Р°РґСЊ РєРІР°РґСЂР°С‚Р°: " << square.get_area() << endl;
+	cout << "РџРµСЂРёРјРµС‚СЂ РєРІР°РґСЂР°С‚Р°: " << square.get_perimeter() << endl;
 	square.draw();
 
 	Triangle triangle(3,4,90);
 	triangle.set_length_c(0);
-	cout << "Периметр треугольника: " << triangle.get_perimeter() << endl;
-	//cout << "Третья сторона треугольника: " << triangle.get_length_c() << endl;
-	cout << "Площадь треугольника: " << triangle.get_area() << endl;
+	cout << "РџРµСЂРёРјРµС‚СЂ С‚СЂРµСѓРіРѕР»СЊРЅРёРєР°: " << triangle.get_perimeter() << endl;
+	//cout << "РўСЂРµС‚СЊСЏ СЃС‚РѕСЂРѕРЅР° С‚СЂРµСѓРіРѕР»СЊРЅРёРєР°: " << triangle.get_length_c() << endl;
+	cout << "РџР»РѕС‰Р°РґСЊ С‚СЂРµСѓРіРѕР»СЊРЅРёРєР°: " << triangle.get_area() << endl;
 
 	Circle circle(5,Color::console_blue);
-	cout << "Периметр окружности: " << circle.get_perimeter() << endl;
-	cout << "Площадь окружности: " << circle.get_area() << endl;
+	cout << "РџРµСЂРёРјРµС‚СЂ РѕРєСЂСѓР¶РЅРѕСЃС‚Рё: " << circle.get_perimeter() << endl;
+	cout << "РџР»РѕС‰Р°РґСЊ РѕРєСЂСѓР¶РЅРѕСЃС‚Рё: " << circle.get_area() << endl;
 	
 }
