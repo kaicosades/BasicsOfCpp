@@ -1,4 +1,4 @@
-#include<iostream>
+Ôªø#include<iostream>
 using namespace std;
 
 #define RAB "\t"
@@ -6,14 +6,14 @@ using namespace std;
 
 class String
 {
-	int size; //–‡ÁÏÂ ÒÚÓÍË ‚ ·‡ÈÚ‡ı
-	char* str; //¿‰ÂÒÒ ÒÚÓÍË ‚ ‰ËÌ‡ÏË˜ÂÒÍÓÈ Ô‡ÏˇÚË
+	int size; //–†–∞–∑–º–µ—Ä —Å—Ç—Ä–æ–∫–∏ –≤ –±–∞–π—Ç–∞—Ö
+	char* str; //–ê–¥—Ä–µ—Å—Å —Å—Ç—Ä–æ–∫–∏ –≤ –¥–∏–Ω–∞–º–∏—á–µ—Å–∫–æ–π –ø–∞–º—è—Ç–∏
 public:
 	int get_size()const
 	{
 		return size;
 	}
-	const char* get_str()const// Ú Í ÔÓÒÎÂ „ÂÚÂ‡ ÒÚÓËÚ ÍÓÌÒÚ Ë ‚ÓÁ‚‡˘‡ÂÚÒˇ ÒÒ˚ÎÍ‡ Ì‡ ÛÍ‡Á‡ÚÂÎ¸, ÚÓ ˜‡ ÚÓÊÂ ‰ÓÎÊÂÌ ·˚Ú¸ ÍÓÌÒÚ
+	const char* get_str()const// —Ç –∫ –ø–æ—Å–ª–µ –≥–µ—Ç–µ—Ä–∞ —Å—Ç–æ–∏—Ç –∫–æ–Ω—Å—Ç –∏ –≤–æ–∑–≤—Ä–∞—â–∞–µ—Ç—Å—è —Å—Å—ã–ª–∫–∞ –Ω–∞ —É–∫–∞–∑–∞—Ç–µ–ª—å, —Ç–æ —á–∞—Ä —Ç–æ–∂–µ –¥–æ–ª–∂–µ–Ω –±—ã—Ç—å –∫–æ–Ω—Å—Ç
 	{
 		return str;
 	}
@@ -27,24 +27,24 @@ public:
 	explicit String(int size = 80)
 	{
 		this->size = size;
-		this->str = new char[size] {}; //ÙË„ÛÌ˚Â ÒÍÓ·ÍË Á‰ÂÒ¸ Á‡ÔÓÎÌˇ˛Ú ÌÛÎˇÏË ÒÚÓÍÛ. »Ì‡˜Â ÏÛÒÓ ·Û‰ÂÚ.
+		this->str = new char[size] {}; //—Ñ–∏–≥—É—Ä–Ω—ã–µ —Å–∫–æ–±–∫–∏ –∑–¥–µ—Å—å –∑–∞–ø–æ–ª–Ω—è—é—Ç –Ω—É–ª—è–º–∏ —Å—Ç—Ä–æ–∫—É. –ò–Ω–∞—á–µ –º—É—Å–æ—Ä –±—É–¥–µ—Ç.
 		cout << "DefConstructor:\t" << this << endl;
 
 	}
 
-	String(const char* str) //Á‚ÂÁ‰Ó˜Í‡ ‚ ‰‡ÌÌÓÏ ÒÎÛ˜‡Â ˝ÚÓ ÒÚÓÍ‡(Ï‡ÒÒË‚ ˝ÚÓ ÛÍ‡Á‡ÚÂÎ¸)
+	String(const char* str) //–∑–≤–µ–∑–¥–æ—á–∫–∞ –≤ –¥–∞–Ω–Ω–æ–º —Å–ª—É—á–∞–µ —ç—Ç–æ —Å—Ç—Ä–æ–∫–∞(–º–∞—Å—Å–∏–≤ —ç—Ç–æ —É–∫–∞–∑–∞—Ç–µ–ª—å)
 	{
 		this->size = strlen(str) + 1;
-		this->str = new char[size] {};//‚˚‰ÂÎÂÌËÂ ‰ËÌ‡ÏË˜ÂÒÍÓÈ Ô‡ÏˇÚË, ÔÓÚÓÏÛ ˜ÚÓ Ï˚ ÌÂ ÁÌ‡ÂÏ Í‡ÍÓÈ ‡ÁÏÂ Ì‡ ‚ıÓ‰Â
+		this->str = new char[size] {};//–≤—ã–¥–µ–ª–µ–Ω–∏–µ –¥–∏–Ω–∞–º–∏—á–µ—Å–∫–æ–π –ø–∞–º—è—Ç–∏, –ø–æ—Ç–æ–º—É —á—Ç–æ –º—ã –Ω–µ –∑–Ω–∞–µ–º –∫–∞–∫–æ–π —Ä–∞–∑–º–µ—Ä –Ω–∞ –≤—Ö–æ–¥–µ
 		for (int i = 0; str[i]; i++)this->str[i] = str[i];
 		cout << "Constructor:\t" << this << endl;
 	}
 
-	String(const String& other) // ÍÓÌÒÚÛÍÚÓ ÍÓÔËÓ‚‡ÌËˇ
+	String(const String& other) // –∫–æ–Ω—Å—Ç—Ä—É–∫—Ç–æ—Ä –∫–æ–ø–∏—Ä–æ–≤–∞–Ω–∏—è
 	{
-		//deep copy - ÔÓ·ËÚÓ‚ÓÂ ÍÓÔËÓ‚‡ÌËÂ
+		//deep copy - –ø–æ–±–∏—Ç–æ–≤–æ–µ –∫–æ–ø–∏—Ä–æ–≤–∞–Ω–∏–µ
 		this->size = other.size;
-		this->str = new char[size] {}; //‚˚‰ÂÎÂÌËÂ ÌÓ‚ÓÈ Ô‡ÏˇÚË
+		this->str = new char[size] {}; //–≤—ã–¥–µ–ª–µ–Ω–∏–µ –Ω–æ–≤–æ–π –ø–∞–º—è—Ç–∏
 		for (int i = 0; i < size; i++)this->str[i] = other.str[i];
 		cout << "CopyConstructor:\t"<<this << endl;
 	}
@@ -82,16 +82,16 @@ public:
 	}
 	// Operetors:
 
-	String& operator=(const String& other)//ÓÔÂ‡ÚÓ ÔËÒ‚‡Ë‚‡ÌËˇ ‚ÓÁ‚‡˘‡ÂÚ ÒÒ˚ÎÍÛ Ì‡ Ó·˙ÍÚ, ÔËÌËÏ‡ÂÚ ÍÓÌÒÚ ÒÒ˚ÎÍÛ Ì‡ Ó·˙ÂÍÚ
+	String& operator=(const String& other)//–æ–ø–µ—Ä–∞—Ç–æ—Ä –ø—Ä–∏—Å–≤–∞–∏–≤–∞–Ω–∏—è –≤–æ–∑–≤—Ä–∞—â–∞–µ—Ç —Å—Å—ã–ª–∫—É –Ω–∞ –æ–±—ä–∫—Ç, –ø—Ä–∏–Ω–∏–º–∞–µ—Ç –∫–æ–Ω—Å—Ç —Å—Å—ã–ª–∫—É –Ω–∞ –æ–±—ä–µ–∫—Ç
 	{
-		if (this == &other)return *this; //other - Ó·˙ÂÍÚ ÔÂÂ‰‡ÌÌ˚È ‚ ÙÛÌÍˆË˛
+		if (this == &other)return *this; //other - –æ–±—ä–µ–∫—Ç –ø–µ—Ä–µ–¥–∞–Ω–Ω—ã–π –≤ —Ñ—É–Ω–∫—Ü–∏—é
 		int a = 2;
 		int b = 3;
 		a = b;
 		delete[] this->str;
 		//*this = other;
 		this->size = other.size;
-		this->str = new char[size] {}; //‚˚‰ÂÎÂÌËÂ ÌÓ‚ÓÈ Ô‡ÏˇÚË
+		this->str = new char[size] {}; //–≤—ã–¥–µ–ª–µ–Ω–∏–µ –Ω–æ–≤–æ–π –ø–∞–º—è—Ç–∏
 		for (int i = 0; i < size; i++)this->str[i] = other.str[i];
 		cout << "CopyAssignment:\t" << this << endl;
 		return *this;
@@ -100,7 +100,7 @@ public:
 	{
 		return str[i];
 	}
-	char& operator[](int i) // —Ò˚ÎÍ‡ - ‡Á˚ÏÂÌÌÓ‚‡Ì˚È ÛÍ‡Á‡ÚÂÎ¸
+	char& operator[](int i) // –°—Å—ã–ª–∫–∞ - —Ä–∞–∑—ã–º–µ–Ω–Ω–æ–≤–∞–Ω—ã–π —É–∫–∞–∑–∞—Ç–µ–ª—å
 	{
 		return str[i];
 	}
@@ -129,7 +129,7 @@ String operator+(const String& left, const String& right)
 	String cat(left.get_size() + right.get_size() -1);
 	for (int i = 0; i < left.get_size(); i++)
 		cat[i] = left[i];
-		//cat.get_str()[i] = left.get_str()[i]; //Í‚‡‰‡ÚÌ˚Â ÒÍÓ·ÍË ‡Á˚ÏÂÌÓ‚˚‚‡˛Ú ÛÍ‡Á‡ÚÂÎ¸
+		//cat.get_str()[i] = left.get_str()[i]; //–∫–≤–∞–¥—Ä–∞—Ç–Ω—ã–µ —Å–∫–æ–±–∫–∏ —Ä–∞–∑—ã–º–µ–Ω–æ–≤—ã–≤–∞—é—Ç —É–∫–∞–∑–∞—Ç–µ–ª—å
 	for (int i = 0; i < right.get_size(); i++)
 		cat[i+left.get_size()-1]=right[i];
 		//cat.get_str()[i + left.get_size() - 1] = right.get_str()[i];
