@@ -32,7 +32,7 @@ public:
 		//выделять память два раза нельзя
 	}
 
-	String(const char* str) :size(strlen(str) + 1), str(new char[size] {}) //звездочка в данном случае это строка(массив это указатель)
+	String(const char* str) :String(strlen(str) + 1)//звездочка в данном случае это строка(массив это указатель)
 	{
 	//	this->size = strlen(str) + 1;
 	//	this->str = new char[size] {};//выделение динамической памяти, потому что мы не знаем какой размер на входе
@@ -40,12 +40,12 @@ public:
 		cout << "Constructor:\t" << this << endl;
 	}
 
-	String(const String& other) :size(other.size), str(new char[size] {}) // конструктор копирования
+	String(const String& other) :String(other.str) // конструктор копирования
 	{
 		//deep copy - побитовое копирование
 	//  this->size = other.size;
 	//	this->str = new char[size] {}; //выделение новой памяти
-		for (int i = 0; i < size; i++)this->str[i] = other.str[i];
+	//	for (int i = 0; i < size; i++)this->str[i] = other.str[i];
 		cout << "CopyConstructor:\t"<<this << endl;
 	}
 
