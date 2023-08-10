@@ -24,37 +24,37 @@ public:
 	}
 	//	Constructors:
 
-	explicit String(int size = 80)
+	explicit String(int size = 80) :size(size), str(new char[size] {})//this - инициализация в теле конструктора, можно в конструкторе
 	{
-		this->size = size;
-		this->str = new char[size] {}; //фигурные скобки здесь заполняют нулями строку. Иначе мусор будет.
+		//this->size = size;
+		//this->str = new char[size] {}; //фигурные скобки здесь заполняют нулями строку. Иначе мусор будет.
 		cout << "DefConstructor:\t" << this << endl;
-
+		//выделять память два раза нельзя
 	}
 
-	String(const char* str) //звездочка в данном случае это строка(массив это указатель)
+	String(const char* str) :size(strlen(str) + 1), str(new char[size] {}) //звездочка в данном случае это строка(массив это указатель)
 	{
-		this->size = strlen(str) + 1;
-		this->str = new char[size] {};//выделение динамической памяти, потому что мы не знаем какой размер на входе
+	//	this->size = strlen(str) + 1;
+	//	this->str = new char[size] {};//выделение динамической памяти, потому что мы не знаем какой размер на входе
 		for (int i = 0; str[i]; i++)this->str[i] = str[i];
 		cout << "Constructor:\t" << this << endl;
 	}
 
-	String(const String& other) // конструктор копирования
+	String(const String& other) :size(other.size), str(new char[size] {}) // конструктор копирования
 	{
 		//deep copy - побитовое копирование
-		this->size = other.size;
-		this->str = new char[size] {}; //выделение новой памяти
+	//  this->size = other.size;
+	//	this->str = new char[size] {}; //выделение новой памяти
 		for (int i = 0; i < size; i++)this->str[i] = other.str[i];
 		cout << "CopyConstructor:\t"<<this << endl;
 	}
 
 
-	String(String&& other)
+	String(String&& other):size(other.size), str(other.str)
 	{
 		//shallow copy:
-		this->size = other.size;
-		this->str = other.str;
+		//this->size = other.size;
+		//this->str = other.str;
 		other.size = 0;
 		other.str = 0;
 		cout << "MoveConstructor:\t" << this << endl;
@@ -136,9 +136,16 @@ String operator+(const String& left, const String& right)
 	return cat;
 }
 
+
+#define BASE_CHECK
+//#define CALLING_CONSTRUCTORS
+
 void main()
 {
 	setlocale(LC_ALL, "");
+
+#ifdef BASE_CHECK
+
 	cout << sizeof("Hello") << endl;
 
 	String str;
@@ -160,4 +167,28 @@ void main()
 	str4 = str1 + str2;
 	cout << str4 << endl;
 	// cout << str << endl;
+#endif
+
+#ifdef CALLING_CONSTRUCTORS
+	String str1;	//defailt constructor
+	str1.print();
+
+	String str2(5);
+	str2.print();
+
+	String str3 = "Hello";	//single-argument constructor
+	str3.print();
+
+	String str4();	//Таким образом объект не создается и не вызывается конструктор по умолчанию
+					//Таким образом объявляется функция str4(), которая ничего не принимает и возвращает значение типа string
+
+	//str4.print();
+
+	String str5{};	//Явный вызов конструктора по умолчанию
+	str5.print();
+#endif
+
+	String str5 = str4;
+	cout << str5 << endl;
+
 }

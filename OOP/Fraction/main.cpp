@@ -37,10 +37,11 @@ public:
 		this->numerator = numenator;
 	}
 	
-	void set_denominator(int denominator)
+	int set_denominator(int denominator)
 	{
 		if (denominator == 0)denominator = 1;
 		this->denominator = denominator;
+		return this->denominator;
 	}
 
 		//constuctors:
@@ -81,11 +82,13 @@ public:
 		cout << "Constructor :\t" << this << endl;
 	}
 
-	Fraction(int integer , int numerator, int denominator)
+	Fraction(int integer , int numerator, int denominator):integer(integer),
+		numerator(numerator), 
+		denominator(denominator)
 	{
-		this->integer = integer;
-		this->numerator = numerator;
-		set_denominator(denominator);
+		//this->integer = integer;
+		//this->numerator = numerator;
+		//set_denominator(denominator);
 		cout << "Constructor :\t" << this << endl;
 	}
 
@@ -418,4 +421,7 @@ void main()
 
 	Fraction A = 2.76;
 	std::cout << A << std::endl;
+
+	Fraction C(2, 3, 4);
+	cout << C << endl;
  }
