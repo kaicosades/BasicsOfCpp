@@ -1,0 +1,5 @@
+﻿  Source.cpp
+C:\Users\Александр\source\repos\Test\BasicsOfCpp-ConstructorsDelegationInString\BasicsOfCpp-ConstructorsDelegationInString\Loops\Loops\Source.cpp(8,6): warning C4326: return type of 'main' should be 'int' instead of 'void'
+C:\Users\Александр\source\repos\Test\BasicsOfCpp-ConstructorsDelegationInString\BasicsOfCpp-ConstructorsDelegationInString\Loops\Loops\Source.cpp(51,11): warning C4244: '=': conversion from 'double' to 'int', possible loss of data
+C:\Users\Александр\source\repos\Test\BasicsOfCpp-ConstructorsDelegationInString\BasicsOfCpp-ConstructorsDelegationInString\Loops\Loops\Source.cpp(55,10): warning C4244: '=': conversion from 'double' to 'int', possible loss of data
+  Loops.vcxproj -> C:\Users\Александр\source\repos\Test\BasicsOfCpp-ConstructorsDelegationInString\BasicsOfCpp-ConstructorsDelegationInString\Loops\x64\Debug\Loops.exe
